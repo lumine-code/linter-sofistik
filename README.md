@@ -4,14 +4,27 @@ Display SOFiSTiK compilation errors. Reads error messages from SOFiSTiK output a
 
 ## Features
 
-- **Error display**: Shows SOFiSTiK errors with linter UI.
-- **Manual trigger**: Run linting on demand.
+- **Module validation**: validates `PROG` module names on the fly against the keywords provided by `language-sofistik`.
+- **Error display**: shows SOFiSTiK compilation errors from `.error_positions` files with the linter UI.
+- **Manual trigger**: run compilation-error linting on demand and jump to the first error.
 
 ## Installation
 
-To install `linter-sofistik` search for [linter-sofistik](https://web.pulsar-edit.dev/packages/linter-sofistik) in the Install pane of the Pulsar settings or run `ppm install linter-sofistik`. Alternatively, you can run `ppm install asiloisad/pulsar-linter-sofistik` to install a package directly from the GitHub repository.
+To install `linter-sofistik` search for _linter-sofistik_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/linter-sofistik`.
 
-This package requires [language-sofistik](https://github.com/asiloisad/pulsar-language-sofistik).
+This package requires [language-sofistik](https://github.com/lumine-code/language-sofistik).
+
+## Commands
+
+Commands available in `atom-text-editor[data-grammar="source sofistik"]`:
+
+- `linter-sofistik:lint`: parse the `.error_positions` file next to the current file and display its messages.
+
+## Services
+
+- **linter** (`2.0.0`): provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
+- **linter-indie** (`2.0.0`): consumed to report compilation errors parsed from `.error_positions` files.
+- **sofistik.keywords** (`2.0.0`): consumed to resolve the valid SOFiSTiK module names for validation.
 
 ## Contributing
 

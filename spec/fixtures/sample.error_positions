@@ -1,0 +1,3 @@
+{"errornumber":101,"isError":false,"position":{"line":1,"text":"Some note"}}
+{"errornumber":100,"isError":true,"position":{"line":2,"text":"Error in AQUA input"}}
+not-json-line
