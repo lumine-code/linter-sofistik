@@ -7,8 +7,11 @@
     "url": "https://github.com/lumine-code/linter-sofistik/issues"
   },
   "keywords": [
-    "linter",
-    "sofistik"
+    "cadinp",
+    "structural",
+    "compilation",
+    "errors",
+    "diagnostics"
   ],
   "version": "1.0.0",
   "license": "MIT",
