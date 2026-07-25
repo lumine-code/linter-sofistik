@@ -1,6 +1,8 @@
 # linter-sofistik
 
-Display SOFiSTiK compilation errors. Reads error messages from SOFiSTiK output and shows them using the linter interface.
+Display SOFiSTiK compilation errors as linter messages.
+
+Reads error messages from SOFiSTiK output and shows them using the linter interface.
 
 ## Features
 
