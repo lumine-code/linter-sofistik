@@ -28,19 +28,19 @@
   "providedServices": {
     "linter": {
       "versions": {
-        "2.0.0": "provideLinter"
+        "1.0.0": "provideLinter"
       }
     }
   },
   "consumedServices": {
     "linter-indie": {
       "versions": {
-        "2.0.0": "consumeIndie"
+        "^1.0.0": "consumeIndie"
       }
     },
     "sofistik.keywords": {
       "versions": {
-        "2.0.0": "consumeKeywordsService"
+        "^1.0.0": "consumeKeywordsService"
       }
     }
   },

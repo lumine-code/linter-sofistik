@@ -34,7 +34,7 @@ describe("linter-sofistik", () => {
     function stubKeywords(moduleNames) {
       mainModule.consumeKeywordsService({
         name: "sofistik-keywords",
-        version: "2.0.0",
+        version: "1.0.0",
         provider: {
           withContext: () => ({ getModuleNames: () => moduleNames }),
         },

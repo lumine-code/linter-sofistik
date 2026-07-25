@@ -22,9 +22,9 @@ Commands available in `atom-text-editor[data-grammar="source sofistik"]`:
 
 ## Services
 
-- **linter** (`2.0.0`): provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
-- **linter-indie** (`2.0.0`): consumed to report compilation errors parsed from `.error_positions` files.
-- **sofistik.keywords** (`2.0.0`): consumed to resolve the valid SOFiSTiK module names for validation.
+- **linter** (`1.0.0`): provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
+- **linter-indie** (`^1.0.0`): consumed to report compilation errors parsed from `.error_positions` files.
+- **sofistik.keywords** (`^1.0.0`): consumed to resolve the valid SOFiSTiK module names for validation.
 
 ## Contributing
 
