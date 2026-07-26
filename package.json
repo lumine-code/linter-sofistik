@@ -43,7 +43,7 @@
     },
     "sofistik.keywords": {
       "versions": {
-        "^1.0.0": "consumeKeywordsService"
+        "^1.0.0": "consumeSofistikKeywords"
       }
     }
   },
