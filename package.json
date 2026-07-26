@@ -29,16 +29,16 @@
     "language-sofistik:grammar-used"
   ],
   "providedServices": {
-    "linter": {
+    "linter.provider": {
       "versions": {
         "1.0.0": "provideLinter"
       }
     }
   },
   "consumedServices": {
-    "linter-indie": {
+    "linter.registry": {
       "versions": {
-        "^1.0.0": "consumeIndie"
+        "^1.0.0": "consumeLinterRegistry"
       }
     },
     "sofistik.keywords": {

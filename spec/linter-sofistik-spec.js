@@ -90,7 +90,7 @@ describe("linter-sofistik", () => {
         },
         dispose() {},
       };
-      mainModule.consumeIndie((options) => {
+      mainModule.consumeLinterRegistry((options) => {
         expect(options.name).toBe("SOFiSTiK post");
         return delegate;
       });
