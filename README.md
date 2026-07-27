@@ -24,9 +24,9 @@ Commands available in `atom-text-editor[data-grammar="source sofistik"]`:
 
 ## Services
 
-- **[linter.provider](https://lumine-code.github.io/docs.html#services/linter.provider)** (`1.0.0`): provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
-- **[linter.registry](https://lumine-code.github.io/docs.html#services/linter.registry)** (`^1.0.0`): consumed to report compilation errors parsed from `.error_positions` files.
-- **[sofistik.keywords](https://lumine-code.github.io/docs.html#services/sofistik.keywords)** (`^1.0.0`): consumed to resolve the valid SOFiSTiK module names for validation.
+- **linter.provider** (`1.0.0`): provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
+- **linter.registry** (`^1.0.0`): consumed to report compilation errors parsed from `.error_positions` files.
+- **sofistik.keywords** (`^1.0.0`): consumed to resolve the valid SOFiSTiK module names for validation.
 
 ## Contributing
 
