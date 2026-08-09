@@ -4,13 +4,13 @@ describe("linter-sofistik", () => {
   let mainModule, workspaceElement;
 
   beforeEach(async () => {
-    workspaceElement = atom.views.getView(atom.workspace);
+    workspaceElement = lumine.views.getView(lumine.workspace);
     jasmine.attachToDOM(workspaceElement);
 
     // The package defers activation until the SOFiSTiK grammar is used.
-    atom.packages.triggerDeferredActivationHooks();
-    atom.packages.triggerActivationHook("language-sofistik:grammar-used");
-    mainModule = (await atom.packages.activatePackage("linter-sofistik")).mainModule;
+    lumine.packages.triggerDeferredActivationHooks();
+    lumine.packages.triggerActivationHook("language-sofistik:grammar-used");
+    mainModule = (await lumine.packages.activatePackage("linter-sofistik")).mainModule;
   });
 
   describe("linter provider", () => {
@@ -28,7 +28,7 @@ describe("linter-sofistik", () => {
     let editor;
 
     beforeEach(async () => {
-      editor = await atom.workspace.open(path.join(__dirname, "fixtures", "sample.dat"));
+      editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.dat"));
     });
 
     function stubKeywords(moduleNames) {
@@ -76,7 +76,7 @@ describe("linter-sofistik", () => {
     let editor, delegate;
 
     beforeEach(async () => {
-      editor = await atom.workspace.open(path.join(__dirname, "fixtures", "sample.dat"));
+      editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.dat"));
 
       delegate = {
         name: "SOFiSTiK post",
@@ -120,7 +120,7 @@ describe("linter-sofistik", () => {
     });
 
     it("keeps quiet when no .error_positions file exists", async () => {
-      await atom.workspace.open(path.join(__dirname, "fixtures", "missing.dat"));
+      await lumine.workspace.open(path.join(__dirname, "fixtures", "missing.dat"));
       delegate.messages = null;
       mainModule.lintErrorPositions();
       expect(delegate.messages).toBeNull();

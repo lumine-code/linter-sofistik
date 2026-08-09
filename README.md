@@ -18,7 +18,7 @@ This package requires [language-sofistik](https://github.com/lumine-code/languag
 
 ## Commands
 
-Commands available in `atom-text-editor[data-grammar="source sofistik"]`:
+Commands available in `lumine-text-editor[data-grammar="source sofistik"]`:
 
 - `linter-sofistik:lint`: parse the `.error_positions` file next to the current file and display its messages.
 
