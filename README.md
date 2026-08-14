@@ -4,6 +4,8 @@ Display SOFiSTiK compilation errors as linter messages.
 
 Reads error messages from SOFiSTiK output and shows them using the linter interface.
 
+> **NOTE**: This package is not an official SOFiSTiK product and is not affiliated with or endorsed by SOFiSTiK AG.
+
 ## Features
 
 - **Module validation**: validates `PROG` module names on the fly against the keywords provided by `language-sofistik`.
@@ -12,9 +14,7 @@ Reads error messages from SOFiSTiK output and shows them using the linter interf
 
 ## Installation
 
-To install `linter-sofistik` search for _linter-sofistik_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/linter-sofistik`.
-
-This package requires [language-sofistik](https://github.com/lumine-code/language-sofistik).
+To install `linter-sofistik` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/linter-sofistik`.
 
 ## Commands
 
@@ -24,9 +24,10 @@ Commands available in `lumine-text-editor[data-grammar="source sofistik"]`:
 
 ## Services
 
-- **linter.provider** (`1.0.0`): provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
-- **linter.registry** (`^1.0.0`): consumed to report compilation errors parsed from `.error_positions` files.
-- **sofistik.keywords** (`^1.0.0`): consumed to resolve the valid SOFiSTiK module names for validation.
+- `linter.provider`: provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
+- `linter.registry`: consumed to report compilation errors parsed from `.error_positions` files.
+- `sofistik.keywords`: consumed to read the valid SOFiSTiK module names for validation.
+- `sofistik.environment`: consumed to resolve which release a file is for, since a module name is only unknown relative to one.
 
 ## Contributing
 
