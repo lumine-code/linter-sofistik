@@ -8,7 +8,7 @@ Reads error messages from SOFiSTiK output and shows them using the linter interf
 
 ## Features
 
-- **Module validation**: validates `PROG` module names on the fly against the keywords provided by `language-sofistik`.
+- **Module validation**: validates `PROG` module names on the fly against the release and language selected by `sofistik-environment`.
 - **Error display**: shows SOFiSTiK compilation errors from `.error_positions` files with the linter UI.
 - **Manual trigger**: run compilation-error linting on demand and jump to the first error.
 
@@ -26,8 +26,7 @@ Commands available in `lumine-text-editor[data-grammar="source sofistik"]`:
 
 - `linter.provider`: provided to the linter package; exposes the SOFiSTiK module-name linter with its name, grammar scopes and `lint` function.
 - `linter.registry`: consumed to report compilation errors parsed from `.error_positions` files.
-- `sofistik.keywords`: consumed to read the valid SOFiSTiK module names for validation.
-- `sofistik.environment`: consumed to resolve which release a file is for, since a module name is only unknown relative to one.
+- `sofistik.environment`: consumed to obtain the valid module names for the release and language selected for a file.
 
 ## Contributing
 

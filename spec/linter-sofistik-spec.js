@@ -31,21 +31,17 @@ describe("linter-sofistik", () => {
       editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.dat"));
     });
 
-    // Two services now: the environment names the release, the keywords say
-    // what is valid in it. A module name is only unknown relative to a release.
-    function stubKeywords(moduleNames, version = "2026") {
+    function stubKeywords(moduleNames) {
       mainModule.consumeSofistikEnvironment({
         name: "sofistik-environment",
         version: "1.0.0",
-        provider: { resolve: () => ({ version, language: "en" }) },
-      });
-      mainModule.consumeSofistikKeywords({
-        name: "sofistik-keywords",
-        version: "1.0.0",
         provider: {
-          forRelease: (release) => ({
-            getModuleNames: () => (release === version ? moduleNames : []),
-          }),
+          getKeywordContext: ({ editor: requestedEditor }) =>
+            requestedEditor === editor
+              ? {
+                  getModuleNames: () => moduleNames,
+                }
+              : null,
         },
       });
     }
@@ -75,8 +71,17 @@ describe("linter-sofistik", () => {
       ]);
     });
 
-    it("returns no messages without a keywords provider", () => {
-      mainModule.keywordsProvider = null;
+    it("returns no messages without an environment provider", () => {
+      mainModule.environmentProvider = null;
+      expect(mainModule.provideLinter().lint(editor)).toEqual([]);
+    });
+
+    it("returns no messages without a keyword context", () => {
+      mainModule.consumeSofistikEnvironment({
+        name: "sofistik-environment",
+        version: "1.0.0",
+        provider: { getKeywordContext: () => null },
+      });
       expect(mainModule.provideLinter().lint(editor)).toEqual([]);
     });
   });
