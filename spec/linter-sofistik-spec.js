@@ -8,8 +8,8 @@ describe("linter-sofistik", () => {
     jasmine.attachToDOM(workspaceElement);
 
     // The package defers activation until the SOFiSTiK grammar is used.
-    lumine.packages.triggerDeferredActivationHooks();
-    lumine.packages.triggerActivationHook("language-sofistik:grammar-used");
+    Promise.resolve();
+    lumine.hooks.trigger("language-sofistik:grammar-used");
     mainModule = (await lumine.packages.activatePackage("linter-sofistik")).mainModule;
   });
 
@@ -131,6 +131,21 @@ describe("linter-sofistik", () => {
 
       editor.insertText("x");
       expect(delegate.cleared).toBe(clearedBefore + 1);
+    });
+
+    it("releases consumed services when their edges disappear", () => {
+      const nextDelegate = { dispose: jasmine.createSpy("dispose") };
+      const linterRegistration = mainModule.consumeLinterRegistry(() => nextDelegate);
+      const provider = { getKeywordContext() {} };
+      const environmentRegistration = mainModule.consumeSofistikEnvironment({ provider });
+
+      expect(mainModule.linter).toBe(nextDelegate);
+      expect(mainModule.environmentProvider).toBe(provider);
+      linterRegistration.dispose();
+      environmentRegistration.dispose();
+      expect(nextDelegate.dispose).toHaveBeenCalled();
+      expect(mainModule.linter).toBeNull();
+      expect(mainModule.environmentProvider).toBeNull();
     });
 
     it("keeps quiet when no .error_positions file exists", async () => {

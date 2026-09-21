@@ -29,9 +29,6 @@
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
-  "activationHooks": [
-    "language-sofistik:grammar-used"
-  ],
   "providedServices": {
     "linter.provider": {
       "versions": {
