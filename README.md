@@ -2,6 +2,9 @@
 
 Display SOFiSTiK compilation errors as linter messages.
 
+> [!WARNING]
+> **This package is deprecated.** SOFiSTiK diagnostics and calculation-log import are now provided by [ide-sofistik](https://github.com/lumine-code/ide-sofistik) through [ide-client](https://github.com/lumine-code/ide-client) and [linter](https://github.com/lumine-code/linter). This repository is archived and no longer maintained.
+
 Reads error messages from SOFiSTiK output and shows them using the linter interface.
 
 > **NOTE**: This package is not an official SOFiSTiK product and is not affiliated with or endorsed by SOFiSTiK AG.
@@ -12,9 +15,17 @@ Reads error messages from SOFiSTiK output and shows them using the linter interf
 - **Error display**: shows SOFiSTiK compilation errors from `.error_positions` files with the linter UI.
 - **Manual trigger**: run compilation-error linting on demand and jump to the first error.
 
-## Installation
+## Migration
 
-To install `linter-sofistik` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/linter-sofistik`.
+Disable or uninstall `linter-sofistik` and install `ide-sofistik` with `ide-client`. Keep `linter` installed to display diagnostics.
+
+```sh
+lumine --install lumine-code/ide-client
+lumine --install lumine-code/ide-sofistik
+lumine --install lumine-code/linter
+```
+
+Use `ide-sofistik:read-calculation-diagnostics` on a saved, unchanged source file to import its existing `.error_positions` log.
 
 ## Commands
 
